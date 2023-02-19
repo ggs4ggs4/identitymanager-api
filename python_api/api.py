@@ -9,6 +9,9 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 @cross_origin()
 
+@app.route("/test")
+def test():
+    return 'hi'
 @app.route("/aadhar_verify",methods = ['POST'])
 def aadhar_verify():
     print("Started")
