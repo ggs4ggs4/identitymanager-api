@@ -54,4 +54,4 @@ def face_match_api():
 # Adhaar, Wallet -> If this identity exists and belongs to the user (true) otherwise false
 # If true, we send otp to the owner's mail address
 # Website POST OTP -> Otp verified -> Logged in (true) else false
-app.run(debug=True)
+
