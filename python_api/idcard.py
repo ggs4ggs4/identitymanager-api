@@ -32,6 +32,7 @@ def aadhaar_checker(aadhaar, lines):
     aadhaar = str(aadhaar)
     aadhaar = aadhaar[0:4] + " " + aadhaar[4:8] + " " + aadhaar[8:12]
     for line in lines:
+        print(line)
         res = res or bool(re.search(aadhaar, line))
     return res
 
