@@ -19,7 +19,7 @@ def make_request(img):
 
     if response.status_code == 200:
         res = response.json()
-        return list(res["result"]['extraction_output'].values())
+        return list(map(str,list(res["result"]['extraction_output'].values())))
     else:
         print(response.status_code)
 
