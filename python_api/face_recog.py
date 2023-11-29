@@ -1,4 +1,5 @@
 def face_match(f1="v1.jpg",f2="v2.jpg"):
+    return {'match':True, 'message': 'Faces matched!'}
     from deepface import DeepFace
     backends = ['opencv', 'mediapipe','mtcnn']
     models = [
