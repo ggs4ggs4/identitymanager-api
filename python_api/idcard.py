@@ -1,15 +1,27 @@
-def make_request(img):
+def make_request(img):    
     import requests
-    url = "https://porcupyne.onrender.com/convert"
-    img_path = img
+    url = 'https://eve.idfy.com/v3/tasks/sync/extract/ind_aadhaar'
+    headers = {
+        "Content-Type":'application/json',
+        "account-id":'447b660d709a/ced54ecb-db3f-434a-b1c8-5ab9c62cfeb3',
+        "api-key":'92b14648-1dfc-4ead-b261-b8d1c4ecf295',
+    }
+    params = {
+        "task_id": "3e87ceacd1",
+        "group_id": "8e16324b20-5bc8e7c3c41e",
+        "data": {
+            "document1": img,
+            "consent": "yes"
+        }
+    }
 
-    files = {"file": open(img_path, "rb")}
-
-    response = requests.post(url, files=files)
+    response = requests.post(url, headers=headers, json=params)
 
     if response.status_code == 200:
-        # pprint(type(response.json()))
-        return response.json()["results"]["lines"]
+        res = response.json()
+        return list(res["result"]['extraction_output'].values())
+    else:
+        print(response.status_code)
 
 import re
 
