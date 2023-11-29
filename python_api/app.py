@@ -29,7 +29,7 @@ def aadhar_verify():
     print('request =',name,aadhaar,gender)
     with open(imagefilepath,'rb') as f:
         a = f.read()
-        img_64 = str(base64.b64encode(a))
+        img_64 = str(base64.b64encode(a))[2:-1]
     # print(make_request(b[2:-1]))
     res=str(aadhar_check(img_64,name,aadhaar,gender))
     print(res)
