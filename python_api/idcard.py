@@ -42,7 +42,6 @@ def name_checker(name, lines):
 def aadhaar_checker(aadhaar, lines):
     res = False
     aadhaar = str(aadhaar)
-    aadhaar = aadhaar[0:4] + " " + aadhaar[4:8] + " " + aadhaar[8:12]
     for line in lines:
         print(line)
         res = res or bool(re.search(aadhaar, line))
@@ -51,6 +50,9 @@ def aadhaar_checker(aadhaar, lines):
 def aadhar_check(path,name,aadhaar,g):
     try:
         lines = make_request(path)
+        print("gender",is_male(g,lines))
+        print("name",name_checker(name,lines))
+        print("adhnumbr",aadhaar_checker(aadhaar,lines))
         return is_male(g,lines) and name_checker(name,lines) and aadhaar_checker(aadhaar,lines)
     except:
         return False
