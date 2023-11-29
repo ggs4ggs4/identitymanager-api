@@ -27,7 +27,11 @@ def aadhar_verify():
     # dob=request.form.get('dob')
     # pwd=request.form.get('pwd')
     print('request =',name,aadhaar,gender)
-    res=str(aadhar_check(imagefilepath,name,aadhaar,gender))
+    with open('imagefilepath','rb') as f:
+        a = f.read()
+        img_64 = str(base64.b64encode(a))
+    # print(make_request(b[2:-1]))
+    res=str(aadhar_check(img_64,name,aadhaar,gender))
     print(res)
     print("Done")
     os.remove(imagefilepath)
