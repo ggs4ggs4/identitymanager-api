@@ -1,6 +1,6 @@
 def face_match(f1="v1.jpg",f2="v2.jpg"):
     from deepface import DeepFace
-    backends = ['opencv', 'mediapipe']
+    backends = ['opencv', 'mediapipe','mtcnn']
     models = [
   "VGG-Face", 
   "Facenet", 
@@ -12,7 +12,7 @@ def face_match(f1="v1.jpg",f2="v2.jpg"):
   "Dlib", 
   "SFace",
 ]
-    result = DeepFace.verify(img1_path=f1, img2_path=f2, detector_backend=backends[0],model_name=models[8])
+    result = DeepFace.verify(img1_path=f1, img2_path=f2, detector_backend=backends[2],model_name=models[6])
     
     try:
         if result['verified']==True:
